@@ -1,4 +1,5 @@
-import { Box, List, Stack } from "@mui/material";
+import { Box, Stack } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import PictogramCard from "../PictogramCard/PictogramCard";
 import SettingCardLang from "../SettingsCards/SettingCardOptions/lang/SettingCardLang";
 import SettingCardBoolean from "../SettingsCards/SettingCardBoolean/SettingCardBoolean";
@@ -71,6 +72,23 @@ const DefaultForm = ({ submit }: DefaultFormProps) => {
     cross: false,
   };
 
+  interface DivididorProps {
+    size?: "xs" | "sm" | "md" | "lg" | "xl" | "unknown";
+  }
+
+  const Divididor = ({ size = "unknown" }: DivididorProps): JSX.Element => (
+    <Grid item xs={12}>
+      <Box
+        component="div"
+        sx={{
+          display: { xs: "block", [size]: "none" },
+          backgroundColor: "grey.300",
+          height: 2,
+        }}
+      />
+    </Grid>
+  );
+
   const handlerSubmit = useCallback(() => {
     const newDefaultSettings: DefaultSettings = {
       pictApiAra: { fitzgerald, skin, hair, color },
@@ -89,7 +107,6 @@ const DefaultForm = ({ submit }: DefaultFormProps) => {
       "pictDefaultSettings",
       JSON.stringify(newDefaultSettings)
     );
-    
   }, [
     fitzgerald,
     skin,
@@ -124,107 +141,75 @@ const DefaultForm = ({ submit }: DefaultFormProps) => {
           />
         </Box>
 
-        <List>
-          <Stack
-            display={"flex"}
-            direction={"row"}
-            flexWrap={"wrap"}
-            marginTop={1}
-            rowGap={2}
-            columnGap={2}
-          >
-            <li>
+        <Box sx={{ flexGrow: 1 }}>
+          <Grid container spacing={2}>
+            <Grid item xs={4}>
               <SettingCardLang setting="languages" />
-            </li>
-            <li>
+            </Grid>
+            <Grid item xs={4}>
               <SettingCardBoolean setting={"numbered"} state={numbered} />
-            </li>
-            <li>
+            </Grid>
+            <Grid item xs={4}>
               <SettingCardBoolean
                 setting="color"
                 state={color}
                 setState={setColor}
               />
-            </li>
-            <Stack
-              display={"flex"}
-              direction={"row"}
-              flexWrap={"wrap"}
-              marginTop={1}
-              rowGap={2}
-              columnGap={2}
-            >
-              <li>
-                <SettingCard
-                  setting={"textPosition"}
-                  state={textPosition}
-                  setState={setTextPosition}
-                />
-              </li>
-            </Stack>
-            <li>
+            </Grid>
+            <Divididor />
+            <Grid item xs={12}>
+              <SettingCard
+                setting={"textPosition"}
+                state={textPosition}
+                setState={setTextPosition}
+              />
+            </Grid>
+            <Divididor />
+            <Grid item xs={12}>
               <SettingCardFontGroup state={font} setState={setFont} />
-            </li>
-            <Stack
-              display={"flex"}
-              direction={"row"}
-              flexWrap={"wrap"}
-              marginTop={1}
-              rowGap={2}
-              columnGap={2}
-            >
-              <li>
-                <SettingCardBorder
-                  border="borderOut"
-                  state={borderOut}
-                  setState={setBorderOut}
-                />
-              </li>
-              <li>
-                <SettingCardBorder
-                  border="borderIn"
-                  state={borderIn}
-                  setState={setBorderIn}
-                />
-              </li>
-            </Stack>
-
-            <Stack
-              display={"flex"}
-              direction={"row"}
-              flexWrap={"wrap"}
-              marginTop={1}
-              rowGap={2}
-              columnGap={2}
-            ></Stack>
-
-            {color && (
-              <Stack
-                display={"flex"}
-                direction={"row"}
-                flexWrap={"wrap"}
-                marginTop={1}
-                rowGap={2}
-                columnGap={2}
-              >
-                <li>
+            </Grid>
+            <Divididor />
+            <Grid item xs={12}>
+              <SettingCardBorder
+                border="borderOut"
+                state={borderOut}
+                setState={setBorderOut}
+              />
+            </Grid>
+            <Divididor />
+            <Grid item xs={12}>
+              <SettingCardBorder
+                border="borderIn"
+                state={borderIn}
+                setState={setBorderIn}
+              />
+            </Grid>
+            <Divididor />
+            <Grid item xs={12}>
+              {color && (
+                <Stack
+                  display={"flex"}
+                  direction={{ xs: "column", md: "row" }}
+                  marginTop={1}
+                  rowGap={2}
+                  columnGap={6}
+                >
                   <SettingCard
                     setting={"skin"}
                     state={skin}
                     setState={setSkin}
                   />
-                </li>
-                <li>
+                  <Divididor size="md" />
                   <SettingCard
                     setting={"hair"}
                     state={hair}
                     setState={setHair}
                   />
-                </li>
-              </Stack>
-            )}
-          </Stack>
-        </List>
+                </Stack>
+              )}
+            </Grid>
+          </Grid>
+        </Box>
       </Stack>
     </form>
   );
