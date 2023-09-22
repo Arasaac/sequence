@@ -1,6 +1,13 @@
 import { FontFamily } from "../types/FontFamily";
 
 export const fontList: FontFamily[] = [
+  "Escolar",
+  "Escolar4",
+  "OpenDyslexic",
+  "Atkinson-Hyperlegible",
+  "Memima",
+  "Massallera",
+  "Pipomayu",
   "Abel",
   "Abril Fatface",
   "Anton",
@@ -25,7 +32,6 @@ export const fontList: FontFamily[] = [
   "Dancing Script",
   "Dosis",
   "EB Garamond",
-  "Escolar",
   "Exo 2",
   "Fira Sans",
   "Fira Sans Condensed",

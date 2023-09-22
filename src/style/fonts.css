@@ -13,6 +13,48 @@
   src: url("./fonts/Escolar_N.TTF") format("truetype");
 }
 
+@font-face {
+  font-family: "Escolar4";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://static.arasaac.org/fonts/escolar4.ttf);
+}
+
+@font-face {
+  font-family: "OpenDyslexic";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://static.arasaac.org/fonts/OpenDyslexic-Regular.otf);
+}
+
+@font-face {
+  font-family: "Atkinson-Hyperlegible";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://static.arasaac.org/fonts/Atkinson-Hyperlegible-Regular-102.woff);
+}
+
+@font-face {
+  font-family: "Memima";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://static.arasaac.org/fonts/Memima.ttf);
+}
+
+@font-face {
+  font-family: "Massallera";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://static.arasaac.org/fonts/massallera.ttf);
+}
+
+@font-face {
+  font-family: "Pipomayu";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://static.arasaac.org/fonts/pipomayu.ttf);
+}
+
 /*  50 most use In google */
 @import url("https://fonts.googleapis.com/css2?family=Abel:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface:wght@400;700&display=swap");
